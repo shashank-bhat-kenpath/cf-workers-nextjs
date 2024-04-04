@@ -1,0 +1,19 @@
+name = "video-workers"
+main = "src/index.ts"
+compatibility_date = "2024-04-03"
+
+kv_namespaces = [
+    { binding = "video_process_store", id = "29656c6cad3e4676a1202ee72c519e52" }
+]
+
+services = [
+  { binding = "transcribe_video", service = "./src/transcribe_video.ts" },
+]
+
+[[queues.producers]]
+binding = "MY_QUEUE"
+queue = "my-queue"
+
+[[queues.consumers]]
+queue = "my-queue"
+
